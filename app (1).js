@@ -1,7 +1,7 @@
 // ==================== CONFIGURATION ====================
 const API_BASE_URL = window.location.hostname === 'localhost' 
     ? 'http://localhost:8000' 
-    : 'https://votre-app.up.railway.app'; // Remplacer par votre URL Railway
+    : 'https://web-production-aaf69.up.railway.app';
 
 // ==================== AUTH STATE ====================
 class AuthManager {
