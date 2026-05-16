@@ -1,0 +1,639 @@
+/* ==================== NOTIFICATIONS ==================== */
+.notification {
+    position: fixed;
+    top: -100px;
+    right: 2rem;
+    background: white;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 10000;
+    transition: top 0.3s ease;
+    min-width: 300px;
+    max-width: 500px;
+}
+
+.notification.show {
+    top: 5rem;
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.notification-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.notification-success .notification-icon {
+    background: #4CAF50;
+    color: white;
+}
+
+.notification-error .notification-icon {
+    background: #F44336;
+    color: white;
+}
+
+.notification-info .notification-icon {
+    background: var(--terracotta);
+    color: white;
+}
+
+.notification-message {
+    flex: 1;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+}
+
+/* ==================== GLOBAL LOADER ==================== */
+.global-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.loader-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid var(--beige);
+    border-top-color: var(--terracotta);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ==================== PAGINATION ==================== */
+.pagination-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 3rem 0;
+    flex-wrap: wrap;
+}
+
+.btn-page {
+    padding: 0.7rem 1.2rem;
+    background: white;
+    border: 2px solid var(--beige);
+    color: var(--text-dark);
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+}
+
+.btn-page:hover {
+    border-color: var(--terracotta);
+    color: var(--terracotta);
+}
+
+.btn-page.active {
+    background: var(--terracotta);
+    color: white;
+    border-color: var(--terracotta);
+}
+
+.pagination-dots {
+    padding: 0.7rem 0.5rem;
+    color: #999;
+}
+
+/* ==================== PRODUCT BADGES ==================== */
+.sold-badge {
+    background: #666 !important;
+}
+
+.reserved-badge {
+    background: var(--gold) !important;
+}
+
+.negotiable-badge {
+    background: #4CAF50 !important;
+}
+
+/* ==================== PRODUCT META ==================== */
+.product-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--beige);
+}
+
+.product-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+/* ==================== CHATBOT ==================== */
+.chatbot-container {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000;
+}
+
+.chatbot-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--terracotta);
+    color: white;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(184, 92, 80, 0.3);
+    transition: all 0.3s;
+}
+
+.chatbot-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(184, 92, 80, 0.4);
+}
+
+.chatbot-window {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 350px;
+    height: 500px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.chatbot-window.active {
+    display: flex;
+}
+
+.chatbot-header {
+    background: var(--dark-brown);
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chatbot-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.chatbot-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.chatbot-close:hover {
+    opacity: 1;
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+    background: var(--cream);
+}
+
+.chat-message {
+    display: flex;
+    gap: 0.7rem;
+    margin-bottom: 1rem;
+}
+
+.chat-message-user {
+    flex-direction: row-reverse;
+}
+
+.message-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: var(--beige);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.chat-message-user .message-avatar {
+    background: var(--terracotta);
+}
+
+.message-content {
+    max-width: 70%;
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    background: white;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.chat-message-user .message-content {
+    background: var(--terracotta);
+    color: white;
+}
+
+.chat-input-container {
+    padding: 1rem;
+    background: white;
+    border-top: 1px solid var(--beige);
+    display: flex;
+    gap: 0.5rem;
+}
+
+.chat-input {
+    flex: 1;
+    padding: 0.8rem;
+    border: 1px solid var(--beige);
+    border-radius: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+.chat-input:focus {
+    border-color: var(--terracotta);
+}
+
+.chat-send-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--terracotta);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+}
+
+.chat-send-btn:hover {
+    background: var(--dark-brown);
+}
+
+/* ==================== FILTERS SIDEBAR ==================== */
+.filters-sidebar {
+    position: fixed;
+    left: -100%;
+    top: 60px;
+    width: 300px;
+    height: calc(100vh - 60px);
+    background: white;
+    box-shadow: 5px 0 20px rgba(0,0,0,0.1);
+    transition: left 0.3s;
+    z-index: 999;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.filters-sidebar.active {
+    left: 0;
+}
+
+.filter-group {
+    margin-bottom: 2rem;
+}
+
+.filter-group h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.filter-group select,
+.filter-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--beige);
+    background: var(--cream);
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 0.5rem;
+}
+
+.filter-group select:focus,
+.filter-group input:focus {
+    outline: none;
+    border-color: var(--terracotta);
+}
+
+.filter-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-filter {
+    flex: 1;
+    padding: 0.8rem;
+    border: none;
+    background: var(--terracotta);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.btn-filter:hover {
+    background: var(--dark-brown);
+}
+
+.btn-filter-reset {
+    background: transparent;
+    color: var(--terracotta);
+    border: 2px solid var(--terracotta);
+}
+
+.btn-filter-reset:hover {
+    background: var(--terracotta);
+    color: white;
+}
+
+/* ==================== USER MENU ==================== */
+#userMenu {
+    display: none;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--terracotta);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.user-dropdown {
+    position: absolute;
+    top: 70px;
+    right: 2rem;
+    background: white;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    min-width: 200px;
+    display: none;
+}
+
+.user-dropdown.active {
+    display: block;
+}
+
+.user-dropdown a {
+    display: block;
+    padding: 1rem 1.5rem;
+    color: var(--text-dark);
+    text-decoration: none;
+    border-bottom: 1px solid var(--beige);
+    transition: all 0.3s;
+}
+
+.user-dropdown a:last-child {
+    border-bottom: none;
+}
+
+.user-dropdown a:hover {
+    background: var(--cream);
+    color: var(--terracotta);
+}
+
+/* ==================== PRODUCT DETAIL MODAL ==================== */
+.product-detail-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 5000;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.product-detail-modal.active {
+    display: flex;
+}
+
+.product-detail-content {
+    background: white;
+    max-width: 900px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.product-detail-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.product-detail-gallery {
+    position: relative;
+    height: 500px;
+    background: var(--beige);
+}
+
+.product-detail-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-nav {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+}
+
+.gallery-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.gallery-dot.active {
+    background: white;
+    width: 30px;
+    border-radius: 6px;
+}
+
+.product-detail-info {
+    padding: 2rem;
+}
+
+.product-detail-header {
+    margin-bottom: 2rem;
+}
+
+.product-detail-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.product-detail-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--terracotta);
+    font-weight: 600;
+}
+
+.product-detail-meta {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: var(--cream);
+    border-radius: 8px;
+}
+
+.product-detail-description {
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+.product-detail-seller {
+    padding: 1.5rem;
+    background: var(--cream);
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.product-detail-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-contact {
+    flex: 1;
+    padding: 1rem;
+    background: var(--terracotta);
+    color: white;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.btn-contact:hover {
+    background: var(--dark-brown);
+}
+
+.btn-whatsapp {
+    padding: 1rem 2rem;
+    background: #25D366;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 4px;
+}
+
+.btn-whatsapp:hover {
+    background: #128C7E;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+    .notification {
+        right: 1rem;
+        left: 1rem;
+        min-width: auto;
+    }
+
+    .chatbot-window {
+        width: calc(100vw - 2rem);
+        right: 1rem;
+    }
+
+    .filters-sidebar {
+        width: 80%;
+        max-width: 300px;
+    }
+
+    .product-detail-content {
+        margin: 0;
+    }
+
+    .product-detail-gallery {
+        height: 300px;
+    }
+
+    .product-detail-title {
+        font-size: 1.8rem;
+    }
+
+    .product-detail-meta {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .product-detail-actions {
+        flex-direction: column;
+    }
+}
